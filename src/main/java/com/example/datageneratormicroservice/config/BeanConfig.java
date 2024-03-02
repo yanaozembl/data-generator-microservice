@@ -16,7 +16,7 @@ public class BeanConfig {
     @SneakyThrows
     public XML produverXML() {
         return new XMLDocument(
-                Objects.requireNonNull(getClass().getResourceAsStream("/kafka/producer.xml")).
+                getClass().getResourceAsStream("/kafka/producer.xml").
                         readAllBytes()
         );
     }

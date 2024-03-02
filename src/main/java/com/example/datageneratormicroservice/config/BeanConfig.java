@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
+import java.util.Objects;
 
 @Configuration
 public class BeanConfig {
@@ -15,7 +16,7 @@ public class BeanConfig {
     @SneakyThrows
     public XML produverXML() {
         return new XMLDocument(
-                getClass().getResourceAsStream("/kafka/producer.xml").
+                Objects.requireNonNull(getClass().getResourceAsStream("/kafka/producer.xml")).
                         readAllBytes()
         );
     }
